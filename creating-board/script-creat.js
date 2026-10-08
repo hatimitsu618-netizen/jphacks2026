@@ -8,8 +8,10 @@ const boardData = {
 };
 
 const mouseStatus = {
-    mouse:,
-    
+    mouse: true,
+    wall: false,
+    block: false,
+    goal: false,
 };
 
 
@@ -20,8 +22,8 @@ console.log("start");
 
 let mouseOnJudge = false;   // マウスがマス目に乗ったかの判定用bool値
 
-const drawFun = () => {
-    
+const drawFun = (kindOfPen) => {
+    console.log(`draw ${kindOfPen}`);
 }
 
 cells.forEach((cell) => {
@@ -38,11 +40,15 @@ cells.forEach((cell) => {
     cell.addEventListener("click", (event) => {
         if (mouseOnJudge) {
             const clickedGridIndex = cells.indexOf(event.currentTarget);
-            console.log(`click ${cells[clickedGridIndex]}`);
+            console.log(`click cell : ${clickedGridIndex}`);
         }
     });
+});
 
-
+document.addEventListener("keydown", (event) => {
+    if (event.key.toLowerCase() === "a") {
+        console.log("a key pressed");
+    }
 });
 
 
